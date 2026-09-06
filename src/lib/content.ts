@@ -34,6 +34,16 @@ export const primaryHelplines: Helpline[] = [
     note: "A free crisis-intervention helpline for depression, anxiety and suicidal thoughts. Call or message on WhatsApp — counselling is offered in eleven Indian languages, with appointments with psychologists available too.",
   },
   {
+    id: "kiran",
+    name: "KIRAN",
+    region: "Government of India",
+    contact: "1800-599-0019",
+    tel: "18005990019",
+    chat: "https://depwd.gov.in/en/others-helplines/",
+    hours: "24×7 · Toll-free · 13 languages",
+    note: "A 24×7 national mental-health rehabilitation helpline from the Ministry of Social Justice & Empowerment, offering first-aid counselling, referral services and information in thirteen languages.",
+  },
+  {
     id: "aasra",
     name: "AASRA",
     region: "Navi Mumbai · All India",
@@ -118,6 +128,16 @@ export const regionalHelplines: Helpline[] = [
     note: "A suicide-prevention centre offering befriending services for anyone in emotional crisis, in Malayalam and English.",
   },
   {
+    id: "roshni",
+    name: "Roshni Trust",
+    region: "Hyderabad",
+    contact: "+91 40 6620 2000",
+    tel: "+914066202000",
+    chat: "https://roshinitrust.com",
+    hours: "Daily · 11 am – 9 pm · Also +91 40 6620 2001",
+    note: "Hyderabad's long-running suicide-prevention helpline — free, confidential emotional support for anyone battling thoughts of self-harm, in Telugu, Hindi and English.",
+  },
+  {
     id: "fortis",
     name: "Fortis Stress Helpline",
     region: "Delhi NCR",
@@ -144,6 +164,51 @@ export const directories: { label: string; href: string; note: string }[] = [
     label: "Befrienders Initiative — India",
     href: "https://befriendersinitiative.org/",
     note: "The Indian chapter of Befrienders Worldwide — member centres across the country.",
+  },
+];
+
+export const callingTips: string[] = [
+  "There is no right opening line. “I'm not doing okay and I need to talk to someone” is enough.",
+  "Silence is okay. The counsellor will stay on the line with you — you can take your time.",
+  "If one line is busy or doesn't connect, call the next one. Keep going down this page until someone picks up.",
+  "Worried about someone? Call anyway. Helplines advise families and friends on how to start the conversation.",
+];
+
+export const wordsThatHelp: { say: string; why: string }[] = [
+  {
+    say: "“I'm here. I'm not going anywhere.”",
+    why: "Presence and steadiness matter more than solutions. Sit with them — literally, if you can.",
+  },
+  {
+    say: "“That sounds really hard. Tell me more.”",
+    why: "Being heard without being fixed is what most people in pain need first.",
+  },
+  {
+    say: "“Are you thinking about ending your life?”",
+    why: "Asking directly does not plant the idea — evidence shows it brings relief and opens the door to help. Source: AFSP link below.",
+  },
+  {
+    say: "“You are not a burden. This pain is not permanent.”",
+    why: "Crisis convinces people they are a weight on others. Gently contradict it, again and again.",
+  },
+];
+
+export const wordsToAvoid: { avoid: string; instead: string }[] = [
+  {
+    avoid: "“Just think positive” / “others have it worse”",
+    instead: "“I can't imagine how hard this is, but I want to understand.”",
+  },
+  {
+    avoid: "“You have so much to live for”",
+    instead: "“I love you and I want you in my life. Let's find help together.”",
+  },
+  {
+    avoid: "“Snap out of it” / “it's all in your head”",
+    instead: "“This is not your fault. Depression is an illness — and it is treatable.”",
+  },
+  {
+    avoid: "Promising secrecy",
+    instead: "“I care about you too much to keep this a secret. Let's call a helpline together.”",
   },
 ];
 
@@ -334,6 +399,14 @@ export const sources: { label: string; href: string }[] = [
   {
     label: "ERSS 112 — National emergency response",
     href: "https://112.gov.in",
+  },
+  {
+    label: "KIRAN — MSJE mental-health rehabilitation helpline",
+    href: "https://depwd.gov.in/en/others-helplines/",
+  },
+  {
+    label: "Roshni Trust — Hyderabad",
+    href: "https://roshinitrust.com",
   },
   {
     label: "AFSP — Risk factors & warning signs",

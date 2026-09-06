@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
+  callingTips,
   directories,
   expectations,
   primaryHelplines,
@@ -15,6 +16,8 @@ import {
   sources,
   techniques,
   warningSigns,
+  wordsThatHelp,
+  wordsToAvoid,
 } from "@/lib/content";
 
 function SectionHeading({
@@ -78,6 +81,12 @@ export default function Landing() {
             </a>
             <a href="#signs" className="transition-colors hover:text-foreground">
               Warning signs
+            </a>
+            <a
+              href="#how-to-help"
+              className="transition-colors hover:text-foreground"
+            >
+              How to help
             </a>
             <a href="#getting-through" className="transition-colors hover:text-foreground">
               Getting through
@@ -373,6 +382,72 @@ export default function Landing() {
                   About Tele-MANAS — MoHFW
                 </SourceLink>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How to help someone */}
+        <section id="how-to-help" className="scroll-mt-20 border-t border-border">
+          <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
+            <SectionHeading
+              eyebrow="Helping someone else"
+              title="How to help a person you're worried about"
+            >
+              Most people who die by suicide tell someone first — or give a sign
+              that went unnoticed. You can be the one who notices. These are
+              evidence-informed ways to start. Source:{" "}
+              <SourceLink href="https://afsp.org/risk-factors-protective-factors-and-warning-signs/">
+                AFSP — how to talk to someone about suicide
+              </SourceLink>
+            </SectionHeading>
+
+            {/* Words that help */}
+            <div className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
+              {wordsThatHelp.map((w) => (
+                <article key={w.say} className="bg-background p-6 sm:p-8">
+                  <p className="text-base font-medium leading-snug tracking-tight">
+                    {w.say}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {w.why}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            {/* Words to avoid */}
+            <div className="mt-10 grid gap-x-10 gap-y-0 sm:grid-cols-2">
+              {wordsToAvoid.map((w) => (
+                <div
+                  key={w.avoid}
+                  className="border-b border-border py-5"
+                >
+                  <p className="text-sm text-muted-foreground line-through decoration-border">
+                    {w.avoid}
+                  </p>
+                  <p className="mt-2 text-sm font-medium">
+                    Say instead: {w.instead}
+                  </p>
+                </div>
+                ))}
+            </div>
+
+            {/* Calling tips */}
+            <div className="mt-10 border border-border p-6 sm:p-8">
+              <h4 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+                Calling a helpline, in your words
+              </h4>
+              <ul className="mt-5 max-w-2xl space-y-3">
+                {callingTips.map((tip) => (
+                  <li
+                    key={tip}
+                    className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    <span className="mt-2 size-1 shrink-0 rounded-full bg-foreground" aria-hidden />
+                    {tip}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
