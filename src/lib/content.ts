@@ -4,91 +4,146 @@ export type Helpline = {
   region: string;
   contact: string;
   tel?: string;
-  sms?: string;
+  whatsapp?: string;
   chat?: string;
   hours: string;
   note: string;
 };
 
+/** National services — all India, first things people should try. */
 export const primaryHelplines: Helpline[] = [
   {
-    id: "988",
-    name: "988 Suicide & Crisis Lifeline",
-    region: "United States",
-    contact: "Call or text 988",
-    tel: "988",
-    chat: "https://chat.988lifeline.org",
-    hours: "24/7 · Free · Confidential",
-    note: "For anyone in emotional distress or suicidal crisis — you don't have to be suicidal to call. Press 1 for the Veterans Crisis Line, press 2 for Spanish, or press 3 for LGBTQI+ youth support.",
+    id: "telemanas",
+    name: "Tele-MANAS",
+    region: "Government of India",
+    contact: "14416 or 1800-891-4416",
+    tel: "14416",
+    chat: "https://telemanas.mohfw.gov.in/",
+    hours: "24×7 · Toll-free · 20+ languages",
+    note: "The national mental-health helpline run by the Ministry of Health & Family Welfare. Trained counsellors take every call, and can connect you to mental-health specialists and District Mental Health Programme services near you.",
   },
   {
-    id: "ctl",
-    name: "Crisis Text Line",
-    region: "United States",
-    contact: "Text HOME to 741741",
-    sms: "741741",
-    chat: "https://www.crisistextline.org",
-    hours: "24/7 · Free",
-    note: "Text with a trained crisis counselor when talking out loud feels like too much. Available on WhatsApp and via web chat as well.",
+    id: "vandrevala",
+    name: "Vandrevala Foundation",
+    region: "All India · WhatsApp",
+    contact: "+91 9999 666 555",
+    tel: "+919999666555",
+    whatsapp: "https://wa.me/919999666555",
+    chat: "https://www.vandrevalafoundation.com/free-counseling",
+    hours: "24×7 · 365 days · Free",
+    note: "A free crisis-intervention helpline for depression, anxiety and suicidal thoughts. Call or message on WhatsApp — counselling is offered in eleven Indian languages, with appointments with psychologists available too.",
   },
   {
-    id: "emergency",
-    name: "Emergency services",
-    region: "United States",
-    contact: "Call 911",
-    tel: "911",
-    hours: "24/7",
-    note: "If someone is in immediate danger, has seriously injured themselves, or a life is at risk right now, call emergency services or go to the nearest emergency room.",
+    id: "aasra",
+    name: "AASRA",
+    region: "Navi Mumbai · All India",
+    contact: "+91 22 2754 6669",
+    tel: "+912227546669",
+    chat: "https://aasra.info/",
+    hours: "24×7 · English & Hindi",
+    note: "One of India's longest-running suicide-prevention helplines, answered around the clock by trained volunteers. Non-judgmental, confidential and anonymous — calls are never recorded or shared. Also supports families bereaved by suicide.",
   },
   {
-    id: "samhsa",
-    name: "SAMHSA National Helpline",
-    region: "United States",
-    contact: "1-800-662-4357 (HELP)",
-    tel: "18006624357",
-    hours: "24/7 · 365 days a year",
-    note: "Free, confidential treatment referral and information in English and Spanish for mental health and substance use — for individuals and families.",
+    id: "icall",
+    name: "iCALL — TISS",
+    region: "Tata Institute of Social Sciences",
+    contact: "+91 91529 87821",
+    tel: "+919152987821",
+    chat: "https://icallhelpline.org/",
+    hours: "Mon–Sat · 8 am – 9 pm · Email support too",
+    note: "A psychosocial helpline run by TISS with professional counsellors. Phone and email-based counselling — write to icall@tiss.edu and they respond within 24 hours.",
   },
 ];
 
-export const internationalHelplines: Helpline[] = [
+/** NGO crisis centres across Indian cities, with their real hours. */
+export const regionalHelplines: Helpline[] = [
   {
-    id: "fah",
-    name: "Find A Helpline",
-    region: "160+ countries",
-    contact: "findahelpline.com",
-    chat: "https://findahelpline.com",
-    hours: "Directory of verified local services",
-    note: "The fastest way to find a free, confidential helpline near you — phone, text and chat services vetted by the global suicide-prevention community.",
+    id: "sneha",
+    name: "SNEHA",
+    region: "Chennai",
+    contact: "+91 44 2464 0050",
+    tel: "+914424640050",
+    chat: "https://snehaindia.org",
+    hours: "24×7 · Every day",
+    note: "SNEHA (Sneha Foundation India) has offered face-to-face and telephone support for people feeling suicidal in Chennai for decades, in Tamil and English.",
   },
   {
-    id: "iasp",
-    name: "IASP crisis centres",
-    region: "Worldwide",
-    contact: "iasp.info/suicidalthoughts",
-    chat: "https://www.iasp.info/suicidalthoughts/",
-    hours: "Official directory",
-    note: "The International Association for Suicide Prevention lists certified crisis centres by country, plus immediate guidance for a suicidal crisis.",
+    id: "sumaitri",
+    name: "SUMAITRI",
+    region: "New Delhi",
+    contact: "+91 11 2338 9090",
+    tel: "+911123389090",
+    chat: "https://sumaitri.net",
+    hours: "Daily · 12:30 – 5:00 pm · Also +91 9315 767 849",
+    note: "A Delhi crisis-intervention centre for people who are depressed, distressed or suicidal, offering listening by phone and in person, 365 days a year.",
   },
   {
-    id: "befrienders",
-    name: "Befrienders Worldwide",
-    region: "30+ countries",
-    contact: "befrienders.org",
-    chat: "https://www.befrienders.org",
-    hours: "Directory of member centres",
-    note: "A network of emotional-support centres offering non-judgmental listening, often staffed by trained volunteers, across Europe, Asia, Africa and the Americas.",
+    id: "lifeline-kolkata",
+    name: "Lifeline Foundation",
+    region: "Kolkata",
+    contact: "+91 90880 30303",
+    tel: "+919088030303",
+    chat: "https://www.lifelinefoundation.in/",
+    hours: "Daily, all year · Shift hours",
+    note: "West Bengal's only organisation of its kind — free, anonymous, non-judgmental emotional support from trained volunteers. A member of Befrienders Worldwide.",
   },
   {
-    id: "vcl",
-    name: "Veterans Crisis Line",
-    region: "United States",
-    contact: "Dial 988, then press 1",
-    tel: "988",
-    sms: "838255",
-    chat: "https://www.veteranscrisisline.net",
-    hours: "24/7 · You don't need to be enrolled in VA care",
-    note: "Confidential support for veterans, service members, National Guard and Reserve, and their families. Text 838255 or chat online.",
+    id: "saath",
+    name: "Saath",
+    region: "Ahmedabad",
+    contact: "+91 79 2630 5544",
+    tel: "+917926305544",
+    chat: "https://saathindia.org/",
+    hours: "Daily · 1 – 7 pm · Also +91 79 2630 0222",
+    note: "Saath walks with people caught between the will to live and the urge to die — by phone, email, letters and face-to-face sessions, free and confidential.",
+  },
+  {
+    id: "parivarthan",
+    name: "Parivarthan",
+    region: "Bengaluru",
+    contact: "+91 7676 602 602",
+    tel: "+917676602602",
+    chat: "https://www.parivarthan.org",
+    hours: "Mon–Fri · 4 – 10 pm",
+    note: "Counselling helpline services in English, Hindi, Kannada and Tamil, staffed by trained volunteer counsellors supervised by professionals.",
+  },
+  {
+    id: "maithri",
+    name: "Maithri",
+    region: "Kochi",
+    contact: "+91 484 254 0530",
+    tel: "+914842540530",
+    chat: "https://maithrikochi.org",
+    hours: "Daily · 10 am – 7 pm",
+    note: "A suicide-prevention centre offering befriending services for anyone in emotional crisis, in Malayalam and English.",
+  },
+  {
+    id: "fortis",
+    name: "Fortis Stress Helpline",
+    region: "Delhi NCR",
+    contact: "+91 83768 04102",
+    tel: "+918376804102",
+    chat: "https://www.fortishealthcare.com",
+    hours: "24×7",
+    note: "A round-the-clock stress and mental-health helpline run by Fortis clinicians — useful when you want to speak to a medical professional quickly.",
+  },
+];
+
+export const directories: { label: string; href: string; note: string }[] = [
+  {
+    label: "Find A Helpline — India",
+    href: "https://findahelpline.com/countries/in",
+    note: "Verified free helplines across every Indian state, filterable by topic.",
+  },
+  {
+    label: "AASRA helpline directory",
+    href: "https://www.aasra.info/helpline.html",
+    note: "AASRA's state-by-state list of working suicide-prevention helplines in India.",
+  },
+  {
+    label: "Befrienders Initiative — India",
+    href: "https://befriendersinitiative.org/",
+    note: "The Indian chapter of Befrienders Worldwide — member centres across the country.",
   },
 ];
 
@@ -99,7 +154,7 @@ export const warningSigns: { title: string; body: string }[] = [
   },
   {
     title: "Looking for ways to end one's life",
-    body: "Searching for methods, acquiring pills, weapons or other means, or giving away treasured belongings are urgent warning signs.",
+    body: "Searching for methods, acquiring pills, pesticides or other means, or giving away treasured belongings are urgent warning signs.",
   },
   {
     title: "Saying goodbye, or withdrawal",
@@ -111,7 +166,7 @@ export const warningSigns: { title: string; body: string }[] = [
   },
   {
     title: "Changes in sleep, appetite and daily function",
-    body: "Sleeping far more or far less, neglecting meals or self-care, slipping performance at work or school, rising alcohol or drug use.",
+    body: "Sleeping far more or far less, neglecting meals or self-care, slipping performance at work, college or school, rising alcohol or drug use.",
   },
   {
     title: "Sudden calm after a deep depression",
@@ -194,11 +249,11 @@ export const techniques: {
     id: "safety-plan",
     title: "A personal safety plan",
     for: "Recurring suicidal thoughts",
-    time: "One session with a clinician",
+    time: "One session with a counsellor",
     steps: [
       "List your personal warning signs that a crisis may be developing.",
       "List coping strategies you can use on your own, then people and places that provide distraction.",
-      "Write down the people you can ask for help and professionals or agencies to contact.",
+      "Write down the people you can ask for help and the helplines above to contact.",
       "Agree on how to make your environment safer, and list the reasons for living that matter to you.",
     ],
     source: {
@@ -214,7 +269,7 @@ export const techniques: {
     steps: [
       "Psychotherapy helps people identify and change troubling emotions, thoughts and behaviours.",
       "CBT and similar approaches have strong evidence for depression and anxiety.",
-      "If cost is a barrier, start with a helpline above — they can point you to free or sliding-scale services.",
+      "In India, start with Tele-MANAS (14416) — counsellors can refer you to free District Mental Health Programme services near you.",
     ],
     source: {
       label: "NIMH — Psychotherapies",
@@ -226,47 +281,64 @@ export const techniques: {
 export const expectations: { title: string; body: string }[] = [
   {
     title: "You will not be judged or reported",
-    body: "Helplines are confidential and free. You can stay anonymous, share as much or as little as you want, and end the call or chat whenever you like.",
+    body: "Indian helplines are confidential and free. You can stay anonymous, share as much or as little as you want, and end the call whenever you like.",
   },
   {
     title: "You don't have to be suicidal",
-    body: "Lines exist for any emotional pain — anxiety, loneliness, grief, self-harm thoughts, or simply a bad night. If it matters to you, it matters to them.",
+    body: "Lines exist for any emotional pain — exam and job stress, loneliness, grief, family pressure, self-harm thoughts, or simply a bad night. If it matters to you, it matters to them.",
   },
   {
     title: "A trained human answers",
-    body: "You'll reach a trained counselor or volunteer who listens without judgment. They won't pressure you — many callers just need someone to hear them.",
+    body: "You'll reach a trained counsellor or volunteer who listens without judgment. There is no script and no wrong way to talk — crying, silence, anger, short sentences: all of it is fine.",
   },
   {
-    title: "There is no script and no wrong way",
-    body: "Crying, silence, anger, short sentences — all of it is fine. If the first conversation doesn't fit, you can call a different line or try again another time.",
+    title: "Help in your language",
+    body: "Tele-MANAS answers in over twenty Indian languages, and most NGO helplines respond in English and Hindi plus their regional language. You never have to switch languages to be heard.",
   },
 ];
 
 export const sources: { label: string; href: string }[] = [
-  { label: "988 Suicide & Crisis Lifeline", href: "https://988lifeline.org" },
   {
-    label: "Crisis Text Line",
-    href: "https://www.crisistextline.org",
+    label: "Tele-MANAS — Ministry of Health & Family Welfare",
+    href: "https://telemanas.mohfw.gov.in/",
   },
   {
-    label: "SAMHSA National Helpline",
-    href: "https://www.samhsa.gov/find-help/helplines/national-helpline",
+    label: "National Mental Health Programme — DGHS, MoHFW",
+    href: "https://dghs.mohfw.gov.in/national-mental-health-programme.php",
   },
   {
-    label: "Veterans Crisis Line",
-    href: "https://www.veteranscrisisline.net",
+    label: "AASRA — Suicide prevention & counselling",
+    href: "https://aasra.info/",
   },
-  { label: "Find A Helpline (global)", href: "https://findahelpline.com" },
   {
-    label: "IASP — Suicidal crisis support",
-    href: "https://www.iasp.info/suicidalthoughts/",
+    label: "AASRA — India helpline directory",
+    href: "https://www.aasra.info/helpline.html",
   },
-  { label: "Befrienders Worldwide", href: "https://www.befrienders.org" },
+  {
+    label: "Vandrevala Foundation — free counselling",
+    href: "https://www.vandrevalafoundation.com/free-counseling",
+  },
+  { label: "iCALL — TISS psychosocial helpline", href: "https://icallhelpline.org/" },
+  { label: "SNEHA — Chennai", href: "https://snehaindia.org" },
+  { label: "SUMAITRI — Delhi", href: "https://sumaitri.net" },
+  { label: "Lifeline Foundation — Kolkata", href: "https://www.lifelinefoundation.in/" },
+  { label: "Saath — Ahmedabad", href: "https://saathindia.org/" },
+  {
+    label: "Find A Helpline — India",
+    href: "https://findahelpline.com/countries/in",
+  },
+  {
+    label: "Befrienders Initiative — India",
+    href: "https://befriendersinitiative.org/",
+  },
+  {
+    label: "ERSS 112 — National emergency response",
+    href: "https://112.gov.in",
+  },
   {
     label: "AFSP — Risk factors & warning signs",
     href: "https://afsp.org/risk-factors-protective-factors-and-warning-signs/",
   },
-  { label: "988 Lifeline — Learn", href: "https://988lifeline.org/learn/" },
   {
     label: "NIMH — Depression",
     href: "https://www.nimh.nih.gov/health/topics/depression",

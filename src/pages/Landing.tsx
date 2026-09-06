@@ -8,9 +8,10 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
+  directories,
   expectations,
-  internationalHelplines,
   primaryHelplines,
+  regionalHelplines,
   sources,
   techniques,
   warningSigns,
@@ -67,6 +68,9 @@ export default function Landing() {
             <span className="text-sm font-semibold tracking-tight">
               Mental Help
             </span>
+            <span className="ml-1 hidden text-xs text-muted-foreground sm:inline">
+              · मानसिक सहायता
+            </span>
           </a>
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
             <a href="#helplines" className="transition-colors hover:text-foreground">
@@ -82,10 +86,10 @@ export default function Landing() {
               Sources
             </a>
           </nav>
-          <a href="tel:988">
+          <a href="tel:14416">
             <Button size="sm" className="gap-2">
               <Phone className="size-3.5" />
-              Call 988
+              Call 14416
             </Button>
           </a>
         </div>
@@ -100,7 +104,7 @@ export default function Landing() {
           className="mx-auto max-w-5xl px-6 pb-20 pt-24 sm:pt-32"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Free · Confidential · 24/7
+            India · Free · Confidential · 24×7
           </p>
           <h1 className="mt-6 max-w-3xl text-4xl font-medium leading-[1.1] tracking-tight sm:text-6xl">
             You are not alone.
@@ -108,36 +112,39 @@ export default function Landing() {
             Help is one call away.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Mental Help brings together crisis helplines, the warning signs to
-            watch for, and proven ways to get through — every technique on this
-            page links to its source.
+            Mental Help brings together India's crisis helplines and NGO
+            centres, the warning signs to watch for, and proven ways to get
+            through — every technique on this page links to its source.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a href="tel:988" className="sm:w-auto">
+            <a href="tel:14416" className="sm:w-auto">
               <Button size="lg" className="w-full gap-2 sm:w-auto">
                 <Phone className="size-4" />
-                Call 988 now
-              </Button>
-            </a>
-            <a href="sms:741741" className="sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                Text HOME to 741741
+                Call Tele-MANAS 14416
               </Button>
             </a>
             <a
-              href="https://chat.988lifeline.org"
+              href="https://wa.me/919999666555"
               target="_blank"
               rel="noopener noreferrer"
+              className="sm:w-auto"
+            >
+              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                WhatsApp +91 9999 666 555
+              </Button>
+            </a>
+            <a
+              href="#helplines"
               className="inline-flex h-11 items-center justify-center gap-1.5 px-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:justify-start"
             >
-              Chat online instead
+              See all helplines
               <ArrowUpRight className="size-4" />
             </a>
           </div>
 
           <p className="mt-8 text-sm text-muted-foreground">
-            Outside the US?{" "}
+            Outside India?{" "}
             <a
               href="https://findahelpline.com"
               target="_blank"
@@ -157,16 +164,24 @@ export default function Landing() {
               <span className="font-semibold">
                 If someone is in immediate danger
               </span>{" "}
-              — seriously injured, or a life is at risk right now — skip the
-              helplines and call emergency services, or go to the nearest
-              emergency room.
+              — seriously injured, or a life is at risk right now — call India's
+              national emergency number, or dial 108 for an ambulance, or go to
+              the nearest hospital emergency department.
             </p>
-            <a
-              href="tel:911"
-              className="shrink-0 border border-background/40 px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors hover:bg-background hover:text-foreground"
-            >
-              Call 911
-            </a>
+            <div className="flex shrink-0 gap-3">
+              <a
+                href="tel:112"
+                className="border border-background/40 px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors hover:bg-background hover:text-foreground"
+              >
+                Call 112
+              </a>
+              <a
+                href="tel:108"
+                className="border border-background/40 px-5 py-2.5 text-sm font-semibold tracking-wide transition-colors hover:bg-background hover:text-foreground"
+              >
+                Ambulance 108
+              </a>
+            </div>
           </div>
         </section>
 
@@ -175,11 +190,11 @@ export default function Landing() {
           <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
             <SectionHeading
               eyebrow="Start here"
-              title="Helplines that answer around the clock"
+              title="Helplines that answer across India"
             >
-              Every service below is free and confidential. Calling is the
-              fastest option; texting and chat are there for the moments when
-              talking out loud feels impossible.
+              Every service below is free and confidential. Tele-MANAS is the
+              government's national line; the rest are long-running NGOs. If
+              one line is busy, try another — someone will pick up.
             </SectionHeading>
 
             <div className="mt-12 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
@@ -196,7 +211,7 @@ export default function Landing() {
                   <p className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">
                     {line.hours}
                   </p>
-                  <p className="mt-5 text-2xl font-medium tracking-tight">
+                  <p className="mt-5 text-xl font-medium tracking-tight sm:text-2xl">
                     {line.tel ? (
                       <a
                         href={`tel:${line.tel}`}
@@ -220,12 +235,14 @@ export default function Landing() {
                         Call
                       </a>
                     ) : null}
-                    {line.sms ? (
+                    {line.whatsapp ? (
                       <a
-                        href={`sms:${line.sms}`}
+                        href={line.whatsapp}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                       >
-                        Text
+                        WhatsApp
                       </a>
                     ) : null}
                     {line.chat ? (
@@ -245,10 +262,10 @@ export default function Landing() {
 
             <div className="mt-16">
               <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
-                Elsewhere in the world
+                NGO crisis centres, city by city
               </h3>
               <div className="mt-6 grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
-                {internationalHelplines.map((line) => (
+                {regionalHelplines.map((line) => (
                   <article key={line.id} className="bg-background p-6 sm:p-8">
                     <div className="flex items-baseline justify-between gap-3">
                       <h4 className="font-medium tracking-tight">{line.name}</h4>
@@ -263,16 +280,36 @@ export default function Landing() {
                       {line.note}
                     </p>
                     <a
-                      href={line.chat}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                      href={`tel:${line.tel}`}
+                      className="mt-5 inline-block text-sm font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                     >
                       {line.contact}
-                      <ArrowUpRight className="size-3.5" />
                     </a>
                   </article>
                 ))}
+              </div>
+
+              <div className="mt-10 border border-border p-6 sm:p-8">
+                <h4 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+                  Looking for your state?
+                </h4>
+                <ul className="mt-5 grid gap-4 sm:grid-cols-3">
+                  {directories.map((d) => (
+                    <li key={d.href}>
+                      <a
+                        href={d.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+                      >
+                        {d.label}
+                      </a>
+                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                        {d.note}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -319,19 +356,21 @@ export default function Landing() {
               </p>
               <div className="mt-5 flex flex-wrap gap-6 text-sm font-medium">
                 <a
-                  href="tel:988"
+                  href="tel:14416"
                   className="underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                 >
-                  Call 988
+                  Call Tele-MANAS 14416
                 </a>
                 <a
-                  href="sms:741741"
+                  href="https://wa.me/919999666555"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
                 >
-                  Text HOME to 741741
+                  WhatsApp +91 9999 666 555
                 </a>
-                <SourceLink href="https://988lifeline.org/learn/">
-                  How anyone can help prevent suicide — 988 Lifeline
+                <SourceLink href="https://telemanas.mohfw.gov.in/">
+                  About Tele-MANAS — MoHFW
                 </SourceLink>
               </div>
             </div>
@@ -467,8 +506,8 @@ export default function Landing() {
               <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
                 Mental Help is an information directory, not a treatment
                 provider, and it cannot respond to messages. If you are in
-                crisis right now, use the helplines on this page or call your
-                local emergency number.
+                crisis right now, use the helplines on this page or call 112
+                (India) or your local emergency number.
               </p>
             </div>
             <div className="shrink-0">
@@ -476,23 +515,25 @@ export default function Landing() {
                 In crisis right now
               </p>
               <a
-                href="tel:988"
+                href="tel:14416"
                 className="mt-3 block text-lg font-medium underline decoration-border underline-offset-8 transition-colors hover:decoration-foreground"
               >
-                Call 988
+                Call Tele-MANAS 14416
               </a>
               <a
-                href="sms:741741"
+                href="https://wa.me/919999666555"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-1.5 block text-sm text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
               >
-                Text HOME to 741741
+                WhatsApp +91 9999 666 555
               </a>
             </div>
           </div>
           <div className="mt-12 border-t border-border pt-6">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Mental Help · If you are in
-              immediate danger, call 911 (US) or your local emergency number.
+              © {new Date().getFullYear()} Mental Help · India helplines: Tele-MANAS 14416 · If
+              you are in immediate danger, call 112 or 108 for an ambulance.
             </p>
           </div>
         </div>
