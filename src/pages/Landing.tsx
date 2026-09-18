@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Phone } from "lucide-react";
+import { ArrowUpRight, LogIn, Phone } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
   Accordion,
@@ -206,12 +206,20 @@ export default function Landing() {
               Sources
             </a>
           </nav>
-          <a href="tel:14416">
-            <Button size="sm" className="gap-2">
-              <Phone className="size-3.5" />
-              Call 14416
-            </Button>
-          </a>
+          <div className="flex items-center gap-2">
+            <a href="/auth">
+              <Button size="sm" variant="outline" className="gap-2">
+                <LogIn className="size-3.5" />
+                Sign in
+              </Button>
+            </a>
+            <a href="tel:14416">
+              <Button size="sm" className="gap-2">
+                <Phone className="size-3.5" />
+                Call 14416
+              </Button>
+            </a>
+          </div>
         </div>
       </header>
 
