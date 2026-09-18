@@ -137,7 +137,7 @@ export default function Privacy() {
         <p>
           <strong>Grievance Officer — Mental Help</strong>
           <br />
-          Email: <span className="text-foreground">grievance@mentalhelp.example</span>
+          Email: <span className="text-foreground">mh.author324@passfwd.com</span>
           <br />
           We acknowledge complaints within 72 hours and resolve them within 30 days.
         </p>

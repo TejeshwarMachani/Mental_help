@@ -135,7 +135,7 @@ export default function Terms() {
         <p>
           <strong>Grievance Officer — Mental Help</strong>
           <br />
-          Email: <span className="text-foreground">grievance@mentalhelp.example</span>
+          Email: <span className="text-foreground">mh.author324@passfwd.com</span>
           <br />
           Response time: within 30 days of receiving a complaint (we aim for 72 hours).
         </p>
