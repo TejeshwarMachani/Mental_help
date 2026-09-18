@@ -46,6 +46,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
   const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [consented, setConsented] = useState(false);
 
   useEffect(() => {
     if (!authLoading && isAuthenticated) {
@@ -146,7 +147,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                         placeholder="name@example.com"
                         type="email"
                         className="pl-9"
-                        disabled={isLoading}
+                        disabled={isLoading || !consented}
                         required
                       />
                     </div>
@@ -154,7 +155,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                       type="submit"
                       variant="outline"
                       size="icon"
-                      disabled={isLoading}
+                      disabled={isLoading || !consented}
                     >
                       {isLoading ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -166,7 +167,40 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                   {error && (
                     <p className="mt-2 text-sm text-red-500">{error}</p>
                   )}
-                  
+
+                  <label className="mt-4 flex cursor-pointer items-start gap-2.5 text-left">
+                    <input
+                      type="checkbox"
+                      checked={consented}
+                      onChange={(e) => setConsented(e.target.checked)}
+                      className="mt-0.5 size-4 shrink-0 accent-foreground"
+                      required
+                    />
+                    <span className="text-xs leading-relaxed text-muted-foreground">
+                      I am 18 or older and I accept the{" "}
+                      <a
+                        href="/terms"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-foreground"
+                      >
+                        Terms &amp; Conditions
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="/privacy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-foreground"
+                      >
+                        Privacy Policy
+                      </a>
+                      . I understand this service is not a substitute for
+                      professional medical care, and that in an emergency I
+                      should call 14416 or 112.
+                    </span>
+                  </label>
+
                   <div className="mt-4">
                     <div className="relative">
                       <div className="absolute inset-0 flex items-center">
@@ -184,7 +218,7 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
                       variant="outline"
                       className="w-full mt-4"
                       onClick={handleGuestLogin}
-                      disabled={isLoading}
+                      disabled={isLoading || !consented}
                     >
                       <UserX className="mr-2 h-4 w-4" />
                       Continue as Guest

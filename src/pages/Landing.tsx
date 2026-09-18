@@ -244,14 +244,9 @@ export default function Landing() {
                 Call Tele-MANAS 14416
               </Button>
             </a>
-            <a
-              href="https://wa.me/919999666555"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sm:w-auto"
-            >
+            <a href="/dashboard" className="sm:w-auto">
               <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                WhatsApp +91 9999 666 555
+                Open Mental Help tools
               </Button>
             </a>
             <a
@@ -686,17 +681,26 @@ export default function Landing() {
                 Call Tele-MANAS 14416
               </a>
               <a
-                href="https://wa.me/919999666555"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/dashboard"
                 className="mt-1.5 block text-sm text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
               >
-                WhatsApp +91 9999 666 555
+                Track your mood · journal · get help →
               </a>
             </div>
           </div>
           <div className="mt-12 border-t border-border pt-6">
-            <p className="text-xs text-muted-foreground">
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+              <a href="/terms" className="text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground">
+                Terms &amp; Conditions
+              </a>
+              <a href="/privacy" className="text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground">
+                Privacy Policy
+              </a>
+              <a href="/auth" className="text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground">
+                Sign in
+              </a>
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">
               © {new Date().getFullYear()} Mental Help · India helplines: Tele-MANAS 14416 · If
               you are in immediate danger, call 112 or 108 for an ambulance.
             </p>

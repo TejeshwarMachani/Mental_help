@@ -2,15 +2,28 @@ import '@vly-ai/integrations';
 import { Toaster } from "@/components/ui/sonner";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import { RequireAuth } from "@/components/RequireAuth";
+import { ConsentGate } from "@/components/ConsentGate";
+import { AppShell } from "@/components/app-shell";
 import { ConvexReactClient } from "convex/react";
 import React, { StrictMode, useEffect, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router";
+import { BrowserRouter, Outlet, Route, Routes, useLocation } from "react-router";
 import "./index.css";
 
 // Lazy load route components for better code splitting
 const Landing = lazy(() => import("./pages/Landing.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const Auth = lazy(() => import("./pages/Auth.tsx"));
+const Terms = lazy(() => import("./pages/legal/Terms.tsx"));
+const Privacy = lazy(() => import("./pages/legal/Privacy.tsx"));
+const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
+const Mood = lazy(() => import("./pages/dashboard/Mood.tsx"));
+const Assessments = lazy(() => import("./pages/dashboard/Assessments.tsx"));
+const Journal = lazy(() => import("./pages/dashboard/Journal.tsx"));
+const Exercises = lazy(() => import("./pages/dashboard/Exercises.tsx"));
+const FindHelp = lazy(() => import("./pages/dashboard/FindHelp.tsx"));
+const Emergency = lazy(() => import("./pages/dashboard/Emergency.tsx"));
 
 // Simple loading fallback for route transitions
 function RouteLoading() {
@@ -117,6 +130,29 @@ createRoot(document.getElementById("root")!).render(
           <Suspense fallback={<RouteLoading />}>
             <Routes>
               <Route path="/" element={<Landing />} />
+              <Route path="/auth" element={<Auth redirectAfterAuth="/dashboard" />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route
+                path="/dashboard"
+                element={
+                  <RequireAuth>
+                    <ConsentGate>
+                      <AppShell>
+                        <Outlet />
+                      </AppShell>
+                    </ConsentGate>
+                  </RequireAuth>
+                }
+              >
+                <Route index element={<Dashboard />} />
+                <Route path="mood" element={<Mood />} />
+                <Route path="assessments" element={<Assessments />} />
+                <Route path="journal" element={<Journal />} />
+                <Route path="exercises" element={<Exercises />} />
+                <Route path="find-help" element={<FindHelp />} />
+                <Route path="emergency" element={<Emergency />} />
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
