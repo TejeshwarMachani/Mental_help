@@ -1,0 +1,17 @@
+{
+  "name": "Mental Help",
+  "short_name": "Mental Help",
+  "description": "India's crisis support directory: 24×7 helplines, NGO crisis centres, warning signs and proven coping techniques with sources.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
