@@ -432,4 +432,300 @@ export const sources: { label: string; href: string }[] = [
     label: "Stanley-Brown Safety Planning Intervention",
     href: "https://suicidesafetyplan.com",
   },
+  {
+    label: "IPN — State-wise suicide prevention centres",
+    href: "https://www.ipn.net.in/suicide-prevention-centers/",
+  },
+];
+
+export type StateHelpline = {
+  state: string;
+  /** A distinct Tele-MANAS cell number, if the state runs one; otherwise undefined (use 14416). */
+  telemanas?: string;
+  /** Extra state services beyond Tele-MANAS, shown as fallbacks. */
+  services: { name: string; contact: string; hours?: string; tel?: string }[];
+};
+
+/**
+ * State-wise directory. Every state answers 14416 (national Tele-MANAS);
+ * entries list services verified via IPN's published directory. A few states
+ * run their own Tele-MANAS cell numbers — these are noted where known.
+ */
+export const stateHelplines: StateHelpline[] = [
+  {
+    state: "Andhra Pradesh",
+    services: [
+      { name: "Life Foundation helpline", contact: "78930 78930", tel: "7893078930" },
+      { name: "GGH Kakinada", contact: "+91 98499 03870", tel: "+919849903870" },
+      { name: "Roshni, Secunderabad", contact: "040 7904 646", tel: "0407904646" },
+    ],
+  },
+  {
+    state: "Arunachal Pradesh",
+    services: [],
+  },
+  {
+    state: "Assam",
+    services: [{ name: "Sarathi 104 health helpline", contact: "104", tel: "104", hours: "24×7" }],
+  },
+  {
+    state: "Bihar",
+    services: [],
+  },
+  {
+    state: "Chandigarh",
+    services: [
+      {
+        name: "Asha helpline",
+        contact: "0172 273 5436 / 0172 273 5446",
+        hours: "Mon–Sat · 8 am – 7 pm",
+      },
+    ],
+  },
+  {
+    state: "Chhattisgarh",
+    services: [{ name: "Aarogya counselling helpline", contact: "104", tel: "104", hours: "24×7" }],
+  },
+  {
+    state: "Delhi",
+    services: [
+      {
+        name: "SUMAITRI",
+        contact: "011 2338 9090",
+        tel: "+911123389090",
+        hours: "Daily · till 10 pm",
+      },
+      {
+        name: "Sanjeevani",
+        contact: "011 2431 1918",
+        tel: "+911124311918",
+        hours: "Mon–Fri · 10 am – 5:30 pm",
+      },
+      { name: "Snehi", contact: "011 6597 8181", tel: "+911165978181", hours: "Daily · 2 – 6 pm" },
+    ],
+  },
+  {
+    state: "Goa",
+    services: [
+      {
+        name: "COOJ Mental Health Foundation",
+        contact: "+91 832 225 2525",
+        tel: "+918322252525",
+        hours: "Mon–Fri · 3 – 7 pm",
+      },
+    ],
+  },
+  {
+    state: "Gujarat",
+    services: [
+      {
+        name: "Saath, Ahmedabad",
+        contact: "079 2630 5544",
+        tel: "+917926305544",
+        hours: "Daily · 1 – 7 pm",
+      },
+      {
+        name: "Jeevan Aastha, Gandhinagar",
+        contact: "1800 233 3330",
+        tel: "18002333330",
+        hours: "Toll-free",
+      },
+      { name: "Aaman Foundation, Vadodara", contact: "+91 98243 72039", tel: "+919824372039" },
+    ],
+  },
+  {
+    state: "Haryana",
+    services: [],
+  },
+  {
+    state: "Himachal Pradesh",
+    services: [{ name: "104 health helpline", contact: "104", tel: "104", hours: "24×7" }],
+  },
+  {
+    state: "Jammu & Kashmir",
+    services: [
+      {
+        name: "Healing Minds Foundation",
+        contact: "1800 180 7020",
+        tel: "18001807020",
+        hours: "Kashmir Lifeline · Sun–Thu · 10 am – 5 pm",
+      },
+      { name: "The Sara, Jammu", contact: "+91 9697 606060", tel: "+919697606060", hours: "Daily · 10 am – 5 pm" },
+    ],
+  },
+  {
+    state: "Jharkhand",
+    services: [
+      { name: "Chikitsa Salah 104", contact: "104", tel: "104", hours: "24×7" },
+      {
+        name: "Jeevan, Jamshedpur",
+        contact: "0657 645 3841",
+        tel: "+916576453841",
+        hours: "Daily · 10 am – 6 pm",
+      },
+    ],
+  },
+  {
+    state: "Karnataka",
+    services: [
+      {
+        name: "SAHAI, Bengaluru",
+        contact: "080 2549 7777",
+        tel: "+918025497777",
+        hours: "Mon–Sat · 10 am – 8 pm",
+      },
+      {
+        name: "Parivarthan, Bengaluru",
+        contact: "+91 7676 602 602",
+        tel: "+917676602602",
+        hours: "Mon–Fri · 4 – 10 pm",
+      },
+      { name: "Suicide Lifeline, Mangaluru", contact: "0824 298 3444", tel: "+918242983444", hours: "24×7" },
+      { name: "Mitram Foundation", contact: "080 2572 2573", tel: "+918025722573", hours: "Daily · 10 am – 4 pm" },
+    ],
+  },
+  {
+    state: "Kerala",
+    services: [
+      { name: "Thanal, Kozhikode", contact: "0495 276 0000", tel: "+914952760000" },
+      { name: "Maithri, Kochi", contact: "0484 254 0530", tel: "+914842540530", hours: "Daily · 10 am – 7 pm" },
+      { name: "Pratheeksha", contact: "0484 244 8830", tel: "+914842448830", hours: "Daily · 10 am – 6 pm" },
+      { name: "Sanjeevani, Thiruvananthapuram", contact: "0471 253 3900", tel: "+914712533900", hours: "Mon–Sat · 1 – 5 pm" },
+      { name: "DISHA", contact: "1056 / 104", tel: "1056", hours: "24×7" },
+    ],
+  },
+  {
+    state: "Ladakh",
+    services: [],
+  },
+  {
+    state: "Lakshadweep",
+    services: [],
+  },
+  {
+    state: "Madhya Pradesh",
+    services: [
+      { name: "Spandan, Indore", contact: "+91 96308 99002", tel: "+919630899002", hours: "24×7" },
+      { name: "Sanjeevani, Jabalpur", contact: "0761 262 6622", tel: "+917612626622" },
+      {
+        name: "Jeevan Aadhar (adolescents), Bhopal",
+        contact: "1800 233 1250",
+        tel: "18002331250",
+        hours: "Daily · 9 am – 5 pm",
+      },
+    ],
+  },
+  {
+    state: "Maharashtra",
+    services: [
+      { name: "Samaritans, Mumbai", contact: "+91 84229 84528", tel: "+918422984528", hours: "Daily · 3 – 9 pm" },
+      {
+        name: "Connecting NGO, Pune",
+        contact: "1800 843 4353",
+        tel: "18008434353",
+        hours: "Daily · 12 – 8 pm · Toll-free",
+      },
+      { name: "Muktaa, Pune", contact: "78878 89882", tel: "7887889882", hours: "Mon–Sat · 12 – 8 pm" },
+      { name: "Maitra, Thane", contact: "022 2538 5447", tel: "+912225385447", hours: "Mon–Sat · 9 am – 9 pm" },
+      { name: "Hitguj / BMC MIND, Mumbai", contact: "022 2413 1212", tel: "+912224131212" },
+    ],
+  },
+  {
+    state: "Manipur",
+    services: [],
+  },
+  {
+    state: "Meghalaya",
+    services: [],
+  },
+  {
+    state: "Mizoram",
+    services: [],
+  },
+  {
+    state: "Nagaland",
+    services: [],
+  },
+  {
+    state: "Odisha",
+    services: [{ name: "104 health helpline", contact: "104", tel: "104", hours: "24×7" }],
+  },
+  {
+    state: "Puducherry",
+    services: [
+      { name: "Maitreyi", contact: "0413 233 9999", tel: "+914132339999", hours: "Daily · 2 – 8 pm" },
+    ],
+  },
+  {
+    state: "Punjab",
+    services: [{ name: "104 health helpline", contact: "104", tel: "104", hours: "24×7" }],
+  },
+  {
+    state: "Rajasthan",
+    services: [
+      { name: "104 health helpline", contact: "104", tel: "104", hours: "24×7" },
+      { name: "Hope Helpline (students), Kota", contact: "0744 233 3666", tel: "+917442333666", hours: "24×7" },
+    ],
+  },
+  {
+    state: "Sikkim",
+    services: [
+      { name: "Suicide Prevention Helpline, Gangtok", contact: "03592 21152 / 1800 345 3225", tel: "18003453225", hours: "24×7" },
+    ],
+  },
+  {
+    state: "Tamil Nadu",
+    services: [
+      { name: "SNEHA, Chennai", contact: "044 2464 0050", tel: "+914424640050", hours: "24×7" },
+      { name: "Jeevan, Chennai", contact: "044 2656 4444", tel: "+914426564444", hours: "24×7" },
+      { name: "104 health helpline", contact: "104", tel: "104", hours: "24×7" },
+    ],
+  },
+  {
+    state: "Telangana",
+    services: [
+      {
+        name: "Roshni Trust, Secunderabad",
+        contact: "040 6620 2000",
+        tel: "+914066202000",
+        hours: "Mon–Sat · 11 am – 9 pm",
+      },
+      { name: "One Life, Hyderabad", contact: "78930 78930", tel: "7893078930", hours: "24×7" },
+      { name: "Makro Foundation, Hyderabad", contact: "040 4600 4600", tel: "+914046004600", hours: "Mon–Fri · 10 am – 7 pm" },
+    ],
+  },
+  {
+    state: "Tripura",
+    services: [
+      { name: "Suicide prevention helpline", contact: "+91 98631 00639", tel: "+919863100639" },
+    ],
+  },
+  {
+    state: "Uttar Pradesh",
+    services: [],
+  },
+  {
+    state: "Uttarakhand",
+    services: [{ name: "104 health helpline", contact: "104", tel: "104", hours: "8 am – 8 pm" }],
+  },
+  {
+    state: "West Bengal",
+    services: [
+      {
+        name: "Lifeline Foundation, Kolkata",
+        contact: "+91 90880 30303",
+        tel: "+919088030303",
+        hours: "Daily · 10 am – 6 pm",
+      },
+      { name: "NIBS, Kolkata", contact: "+91 98364 01234", tel: "+919836401234", hours: "Mon–Fri · 6 – 10 pm" },
+    ],
+  },
+  {
+    state: "Andaman & Nicobar",
+    services: [],
+  },
+  {
+    state: "Dadra & Nagar Haveli and Daman & Diu",
+    services: [],
+  },
 ];

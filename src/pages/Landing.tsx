@@ -1,5 +1,7 @@
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Phone } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import {
   Accordion,
   AccordionContent,
@@ -14,6 +16,7 @@ import {
   primaryHelplines,
   regionalHelplines,
   sources,
+  stateHelplines,
   techniques,
   warningSigns,
   wordsThatHelp,
@@ -57,6 +60,114 @@ function SourceLink({ href, children }: { href: string; children: React.ReactNod
       {children}
       <ArrowUpRight className="size-3.5 shrink-0 transition-transform group-hover/source:-translate-y-0.5 group-hover/source:translate-x-0.5" />
     </a>
+  );
+}
+
+function StateDirectory() {
+  const [query, setQuery] = useState("");
+  const q = query.trim().toLowerCase();
+  const filtered = useMemo(() => {
+    if (!q) return stateHelplines;
+    return stateHelplines.filter(
+      (s) =>
+        s.state.toLowerCase().includes(q) ||
+        s.services.some((sv) => sv.name.toLowerCase().includes(q)),
+    );
+  }, [q]);
+
+  return (
+    <div className="mt-16">
+      <h3 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+        Every state and union territory
+      </h3>
+
+      <div className="mt-6 max-w-md">
+        <label htmlFor="state-search" className="sr-only">
+          Search your state or union territory
+        </label>
+        <Input
+          id="state-search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search your state — e.g. Kerala"
+          className="h-11 rounded-none border-border bg-background text-sm"
+        />
+      </div>
+
+      {filtered.length === 0 ? (
+        <p className="mt-8 text-sm text-muted-foreground">
+          No match — but Tele-MANAS answers everywhere in India. Call 14416.
+        </p>
+      ) : (
+        <ul className="mt-6 grid gap-x-12 sm:grid-cols-2">
+          {filtered.map((s) => (
+            <li key={s.state} className="border-b border-border py-5">
+              <div className="flex items-baseline justify-between gap-3">
+                <h4 className="text-sm font-medium tracking-tight">{s.state}</h4>
+                <a
+                  href="tel:14416"
+                  className="shrink-0 text-xs uppercase tracking-widest text-muted-foreground underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                >
+                  14416
+                </a>
+              </div>
+              {s.services.length > 0 ? (
+                <ul className="mt-3 space-y-1.5">
+                  {s.services.map((sv) => (
+                    <li key={sv.name} className="text-sm text-muted-foreground">
+                      {sv.name} ·{" "}
+                      {sv.tel ? (
+                        <a
+                          href={`tel:${sv.tel}`}
+                          className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+                        >
+                          {sv.contact}
+                        </a>
+                      ) : (
+                        <span>{sv.contact}</span>
+                      )}
+                      {sv.hours ? <span> · {sv.hours}</span> : null}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        Tele-MANAS (14416) answers in every state and UT — rows above list
+        additional local services. Compiled from{" "}
+        <SourceLink href="https://www.ipn.net.in/suicide-prevention-centers/">
+          IPN's directory of Indian crisis centres
+        </SourceLink>
+        . Hours can change; if a local line doesn't connect, call 14416.
+      </p>
+
+      <div className="mt-10 border border-border p-6 sm:p-8">
+        <h4 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+          Full external directories
+        </h4>
+        <ul className="mt-5 grid gap-4 sm:grid-cols-3">
+          {directories.map((d) => (
+            <li key={d.href}>
+              <a
+                href={d.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+              >
+                {d.label}
+              </a>
+              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                {d.note}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 
@@ -298,28 +409,7 @@ export default function Landing() {
                 ))}
               </div>
 
-              <div className="mt-10 border border-border p-6 sm:p-8">
-                <h4 className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
-                  Looking for your state?
-                </h4>
-                <ul className="mt-5 grid gap-4 sm:grid-cols-3">
-                  {directories.map((d) => (
-                    <li key={d.href}>
-                      <a
-                        href={d.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
-                      >
-                        {d.label}
-                      </a>
-                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
-                        {d.note}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <StateDirectory />
             </div>
           </div>
         </section>
